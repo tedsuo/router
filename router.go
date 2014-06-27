@@ -3,6 +3,7 @@ package router
 import (
 	"fmt"
 	"net/http"
+	"runtime"
 	"strings"
 
 	"github.com/bmizerany/pat"
@@ -15,6 +16,9 @@ type Handlers map[string]http.Handler
 // NewRouter combines a set of Routes with their corresponding Handlers to
 // produce a http request multiplexer (AKA a "router").
 func NewRouter(routes Routes, handlers Handlers) (http.Handler, error) {
+	_, file, line, _ := runtime.Caller(1)
+	fmt.Printf("\n\033[0;35m%s\033[0m%s:%d:%s\n", "WARNING:", file, line, " package router is deprecated, please use github.com/tedsuo/rata instead")
+
 	p := pat.New()
 	for _, route := range routes {
 		handler, ok := handlers[route.Handler]

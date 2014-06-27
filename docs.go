@@ -1,4 +1,6 @@
 /*
+Package router is deprecated, please use https://github.com/tedsuo/rata instead.
+
 Package router provides three things: Routes, a Router, and a RequestGenerator.
 
 Routes are structs that define which Method and Path each associated http handler

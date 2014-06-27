@@ -1,4 +1,7 @@
 # Router
+
+Package router is deprecated, please use https://github.com/tedsuo/rata instead.
+
 A router with Pat-style path patterns.
 
 API Docs: https://godoc.org/github.com/tedsuo/router

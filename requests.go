@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"runtime"
 	"strings"
 )
 
@@ -19,6 +20,9 @@ type RequestGenerator struct {
 // NewRequestGenerator creates a RequestGenerator for a given host and route set.
 // Host is of the form "http://example.com".
 func NewRequestGenerator(host string, routes Routes) *RequestGenerator {
+	_, file, line, _ := runtime.Caller(1)
+	fmt.Printf("\n\033[0;35m%s\033[0m%s:%d:%s\n", "WARNING:", file, line, " package router is deprecated, please use github.com/tedsuo/rata instead")
+
 	return &RequestGenerator{
 		host:   host,
 		routes: routes,
